@@ -1,0 +1,17 @@
+{
+  "name": "api-testing-playwright",
+  "version": "1.0.0",
+  "description": "API testing demo using Playwright and Typescript",
+  "main": "index.js",
+  "scripts": {
+    "report": "npx playwright test && npx playwright show-report",
+    "debug": "npx playwright test --debug",
+    "test": "npx playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.33.0"
+  }
+}
