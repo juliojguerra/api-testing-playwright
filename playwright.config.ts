@@ -1,4 +1,11 @@
 import { defineConfig, devices } from "@playwright/test";
+import * as dotenv from "dotenv";
+
+dotenv.config();
+
+if (!process.env.BASE_URL || !process.env.AUTHORIZATION) {
+  throw new Error("Required environment variables are not set");
+}
 
 /**
  * Read environment variables from file.
@@ -23,9 +30,9 @@ export default defineConfig({
   reporter: "html",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    baseURL: "https://dev63051.service-now.com/api/now/table/incident",
+    baseURL: process.env.BASE_URL,
     extraHTTPHeaders: {
-      Authorization: "Basic YWRtaW46IWp3PXZrTEhMMVQ3",
+      Authorization: process.env.AUTHORIZATION,
     },
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
